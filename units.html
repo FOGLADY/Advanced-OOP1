@@ -1,0 +1,471 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license
+-->
+<html>
+	<head>
+		<title>Units 1–12 | Advanced OOP e-Portfolio</title>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, user-scalable=no"
+		/>
+
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<noscript>
+			<link rel="stylesheet" href="assets/css/noscript.css" />
+		</noscript>
+	</head>
+
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo">
+					<strong>Advanced OOP</strong>
+					<span>e-Portfolio</span>
+				</a>
+
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="units.html">Units 1–12</a></li>
+					<li><a href="landing.html">Capstone Project</a></li>
+				</ul>
+
+				<ul class="actions stacked">
+					<li>
+						<a href="index.html" class="button primary fit">
+							Back to Home
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main" class="alt">
+
+				<section id="one">
+					<div class="inner">
+
+						<header class="major">
+							<h1>Module Units 1–12</h1>
+						</header>
+
+						<p>
+							This page presents the practical activities, artefacts,
+							screenshots and reflective evidence developed throughout
+							the twelve units of the Advanced Object-Oriented
+							Programming module.
+						</p>
+
+						<!-- Quick navigation -->
+						<div class="box">
+							<h3>Quick Navigation</h3>
+
+							<p>
+								<a href="#unit1">Unit 1</a> |
+								<a href="#unit2">Unit 2</a> |
+								<a href="#unit3">Unit 3</a> |
+								<a href="#unit4">Unit 4</a> |
+								<a href="#unit5">Unit 5</a> |
+								<a href="#unit6">Unit 6</a> |
+								<a href="#unit7">Unit 7</a> |
+								<a href="#unit8">Unit 8</a> |
+								<a href="#unit9">Unit 9</a> |
+								<a href="#unit10">Unit 10</a> |
+								<a href="#unit11">Unit 11</a> |
+								<a href="#unit12">Unit 12</a>
+							</p>
+						</div>
+
+						<hr class="major" />
+
+						<!-- Unit 1 -->
+						<section id="unit1">
+
+							<header class="major">
+								<h2>
+									Unit 1: Introduction and Recap of
+									Object-Oriented Programming
+								</h2>
+							</header>
+
+							<h3>Unit Overview</h3>
+
+							<p>
+								This unit revisited the four core principles of
+								object-oriented programming: abstraction,
+								encapsulation, inheritance and polymorphism. It also
+								explored the role of classes, objects, constructors
+								and access control in secure and maintainable
+								software design.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I created a small Python AI model hierarchy using an
+								abstract base class and two specialised subclasses.
+								The artefact demonstrates private attributes,
+								controlled access through properties, inheritance
+								and different implementations of the same
+								<code>predict()</code> method.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The activity helped me understand how a shared
+								abstraction can provide a consistent interface while
+								allowing subclasses to implement different
+								behaviours. Encapsulation also demonstrated how object
+								state can be protected from uncontrolled access.
+							</p>
+
+							<h3>Evidence</h3>
+
+							<ul>
+								<li>Abstract <code>AIModel</code> base class</li>
+								<li>
+									<code>TextClassifier</code> and
+									<code>ImageClassifier</code> subclasses
+								</li>
+								<li>
+									Successful execution in the PyCharm console
+								</li>
+							</ul>
+
+							<!--
+							After uploading a screenshot into the images folder,
+							add it here like this:
+
+							<span class="image fit">
+								<img
+									src="images/unit1-oop.png"
+									alt="Unit 1 OOP artefact in PyCharm"
+								/>
+							</span>
+							-->
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 2 -->
+						<section id="unit2">
+
+							<header class="major">
+								<h2>
+									Unit 2: SOLID Principles of
+									Object-Oriented Design
+								</h2>
+							</header>
+
+							<h3>Unit Overview</h3>
+
+							<p>
+								This unit introduced the five SOLID principles:
+								Single Responsibility, Open/Closed, Liskov
+								Substitution, Interface Segregation and Dependency
+								Inversion.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I first created an over-responsible
+								<code>AIApplication</code> class that performed model
+								selection, prediction, result storage and console
+								output. The code was then refactored into focused
+								interfaces and classes following SOLID principles.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The comparison demonstrated that separating
+								responsibilities makes code easier to extend, test
+								and maintain. A new predictor could be introduced
+								without modifying the existing prediction service,
+								which demonstrated the Open/Closed Principle.
+							</p>
+
+							<h3>Evidence</h3>
+
+							<ul>
+								<li>Code before SOLID refactoring</li>
+								<li>
+									Separate <code>Predictor</code>,
+									<code>ResultRepository</code> and
+									<code>Reporter</code> abstractions
+								</li>
+								<li>
+									Text, image and audio predictor implementations
+								</li>
+								<li>
+									Successful execution of the refactored application
+								</li>
+							</ul>
+
+							<!--
+							Add Unit 2 screenshots here later:
+
+							<span class="image fit">
+								<img
+									src="images/unit2-before.png"
+									alt="Code before SOLID refactoring"
+								/>
+							</span>
+
+							<span class="image fit">
+								<img
+									src="images/unit2-after.png"
+									alt="Code after SOLID refactoring"
+								/>
+							</span>
+							-->
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 3 -->
+						<section id="unit3">
+
+							<header class="major">
+								<h2>Unit 3</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 4 -->
+						<section id="unit4">
+
+							<header class="major">
+								<h2>Unit 4</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 5 -->
+						<section id="unit5">
+
+							<header class="major">
+								<h2>Unit 5</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 6 -->
+						<section id="unit6">
+
+							<header class="major">
+								<h2>Unit 6</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 7 -->
+						<section id="unit7">
+
+							<header class="major">
+								<h2>Unit 7</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 8 -->
+						<section id="unit8">
+
+							<header class="major">
+								<h2>Unit 8</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 9 -->
+						<section id="unit9">
+
+							<header class="major">
+								<h2>Unit 9</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 10 -->
+						<section id="unit10">
+
+							<header class="major">
+								<h2>Unit 10</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 11 -->
+						<section id="unit11">
+
+							<header class="major">
+								<h2>Unit 11</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<!-- Unit 12 -->
+						<section id="unit12">
+
+							<header class="major">
+								<h2>Unit 12</h2>
+							</header>
+
+							<p>
+								The overview, artefacts, evidence and reflection for
+								this unit will be added after reviewing the unit
+								activities.
+							</p>
+
+						</section>
+
+						<hr class="major" />
+
+						<ul class="actions">
+							<li>
+								<a href="index.html" class="button primary">
+									Back to Home
+								</a>
+							</li>
+
+							<li>
+								<a href="landing.html" class="button">
+									View Capstone Project
+								</a>
+							</li>
+						</ul>
+
+					</div>
+				</section>
+
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<ul class="icons">
+						<li>
+							<a
+								href="https://github.com/FOGLADY"
+								class="icon brands alt fa-github"
+							>
+								<span class="label">GitHub</span>
+							</a>
+						</li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Mateja Popovic</li>
+						<li>
+							Design:
+							<a href="https://html5up.net">HTML5 UP</a>
+						</li>
+					</ul>
+
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
