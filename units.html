@@ -64,10 +64,13 @@
 						</header>
 
 						<p>
-							This page presents the practical activities, artefacts,
-							screenshots and reflective evidence developed throughout
-							the twelve units of the Advanced Object-Oriented
-							Programming module.
+							This page presents the practical activities, artefacts and
+							reflective learning developed throughout the twelve units of the
+							Advanced Object-Oriented Programming module. Each unit includes
+							an overview of the topic, a description of the artefact produced,
+							the main learning achieved and a critical reflection on design
+							choices, limitations and trade-offs. Supporting screenshots and
+							technical evidence are provided in the accompanying Word document.
 						</p>
 
 						<!-- Quick navigation -->
@@ -106,58 +109,44 @@
 
 							<p>
 								This unit revisited the four core principles of
-								object-oriented programming: abstraction,
-								encapsulation, inheritance and polymorphism. It also
-								explored the role of classes, objects, constructors
-								and access control in secure and maintainable
-								software design.
+								object-oriented programming: abstraction, encapsulation,
+								inheritance and polymorphism. It also reviewed classes,
+								objects, constructors, properties, access control and the
+								role of interfaces in creating maintainable software.
 							</p>
 
 							<h3>Artefact</h3>
 
 							<p>
-								I created a small Python AI model hierarchy using an
-								abstract base class and two specialised subclasses.
-								The artefact demonstrates private attributes,
-								controlled access through properties, inheritance
-								and different implementations of the same
-								<code>predict()</code> method.
+								I created a small Python AI model hierarchy using an abstract
+								<code>AIModel</code> base class and two specialised subclasses:
+								<code>TextClassifier</code> and
+								<code>ImageClassifier</code>. Private attributes were used to
+								protect model name, version and activation state. Properties
+								provided controlled access, while each subclass implemented its
+								own version of the shared <code>predict()</code> operation.
 							</p>
 
 							<h3>What I Learned</h3>
 
 							<p>
-								The activity helped me understand how a shared
-								abstraction can provide a consistent interface while
-								allowing subclasses to implement different
-								behaviours. Encapsulation also demonstrated how object
-								state can be protected from uncontrolled access.
+								The activity demonstrated how a shared abstraction can provide
+								a stable interface while allowing subclasses to vary their
+								behaviour. Encapsulation reduced uncontrolled access to internal
+								state, while polymorphism allowed client code to work with the
+								base type rather than depend on a specific classifier.
 							</p>
 
-							<h3>Evidence</h3>
+							<h3>Critical Reflection</h3>
 
-							<ul>
-								<li>Abstract <code>AIModel</code> base class</li>
-								<li>
-									<code>TextClassifier</code> and
-									<code>ImageClassifier</code> subclasses
-								</li>
-								<li>
-									Successful execution in the PyCharm console
-								</li>
-							</ul>
-
-							<!--
-							After uploading a screenshot into the images folder,
-							add it here like this:
-
-							<span class="image fit">
-								<img
-									src="images/unit1-oop.png"
-									alt="Unit 1 OOP artefact in PyCharm"
-								/>
-							</span>
-							-->
+							<p>
+								Inheritance is useful when subclasses represent a genuine
+								“is-a” relationship, but it can create tight coupling when used
+								only for code reuse. A deep hierarchy would make the model family
+								harder to modify, so composition would be preferable if behaviour
+								needed to be assembled dynamically. This activity therefore
+								showed both the value and the limits of inheritance-based design.
+							</p>
 
 						</section>
 
@@ -179,7 +168,8 @@
 								This unit introduced the five SOLID principles:
 								Single Responsibility, Open/Closed, Liskov
 								Substitution, Interface Segregation and Dependency
-								Inversion.
+								Inversion. These principles guide the design of flexible,
+								testable and maintainable object-oriented systems.
 							</p>
 
 							<h3>Artefact</h3>
@@ -187,55 +177,35 @@
 							<p>
 								I first created an over-responsible
 								<code>AIApplication</code> class that performed model
-								selection, prediction, result storage and console
-								output. The code was then refactored into focused
-								interfaces and classes following SOLID principles.
+								selection, prediction, result storage and console output.
+								The program was then refactored into separate
+								<code>Predictor</code>,
+								<code>ResultRepository</code> and
+								<code>Reporter</code> abstractions coordinated by a focused
+								<code>PredictionService</code>. Text, image and audio predictor
+								implementations could be substituted through the same interface.
 							</p>
 
 							<h3>What I Learned</h3>
 
 							<p>
-								The comparison demonstrated that separating
-								responsibilities makes code easier to extend, test
-								and maintain. A new predictor could be introduced
-								without modifying the existing prediction service,
-								which demonstrated the Open/Closed Principle.
+								The comparison showed that separating responsibilities makes
+								code easier to extend, test and maintain. A new predictor or
+								repository implementation could be introduced without modifying
+								the existing service, demonstrating the Open/Closed and
+								Dependency Inversion principles.
 							</p>
 
-							<h3>Evidence</h3>
+							<h3>Critical Reflection</h3>
 
-							<ul>
-								<li>Code before SOLID refactoring</li>
-								<li>
-									Separate <code>Predictor</code>,
-									<code>ResultRepository</code> and
-									<code>Reporter</code> abstractions
-								</li>
-								<li>
-									Text, image and audio predictor implementations
-								</li>
-								<li>
-									Successful execution of the refactored application
-								</li>
-							</ul>
-
-							<!--
-							Add Unit 2 screenshots here later:
-
-							<span class="image fit">
-								<img
-									src="images/unit2-before.png"
-									alt="Code before SOLID refactoring"
-								/>
-							</span>
-
-							<span class="image fit">
-								<img
-									src="images/unit2-after.png"
-									alt="Code after SOLID refactoring"
-								/>
-							</span>
-							-->
+							<p>
+								SOLID should be treated as a set of design guidelines rather
+								than a requirement to create an interface for every class.
+								Over-applying the principles to a small, stable script can result
+								in unnecessary abstraction and a larger number of files. In this
+								case, the abstractions were justified because model type, storage
+								and reporting were realistic points of change.
+							</p>
 
 						</section>
 
@@ -245,13 +215,50 @@
 						<section id="unit3">
 
 							<header class="major">
-								<h2>Unit 3</h2>
+								<h2>Unit 3: Creational Design Patterns</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit examined creational design patterns including
+								Singleton, Factory Method, Builder, Prototype and Abstract
+								Factory. The main purpose of these patterns is to separate object
+								creation from object use and reduce direct dependence on concrete
+								classes.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I implemented a Factory Method example in which specialised
+								creator classes produced text and image AI services. I then
+								implemented an Abstract Factory structure with local and cloud
+								provider factories. Each concrete factory created a compatible
+								family consisting of an AI model and its associated strategy or
+								service configuration.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								Factory Method centralised the decision about which concrete
+								service should be created, while Abstract Factory ensured that
+								related model families remained compatible. Client code could use
+								the returned abstractions without knowing the exact implementation
+								or deployment environment.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								Factories are valuable when construction is complex, multiple
+								product families are supported or environments may change.
+								However, they introduce additional classes and indirect object
+								creation. If only one implementation exists and creation is
+								simple, direct construction may be clearer. The pattern should
+								therefore be introduced in response to genuine variation rather
+								than used automatically.
 							</p>
 
 						</section>
@@ -262,13 +269,48 @@
 						<section id="unit4">
 
 							<header class="major">
-								<h2>Unit 4</h2>
+								<h2>Unit 4: Structural Design Patterns</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit explored structural patterns and how they organise
+								relationships between objects. The practical focus was the
+								Decorator pattern, which adds responsibilities to an object
+								without changing its original class.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I created a base prediction service and wrapped it with
+								<code>SecurityDecorator</code>,
+								<code>LoggingDecorator</code> and
+								<code>TimingDecorator</code>. Each decorator implemented the
+								same component interface and delegated the core operation to the
+								wrapped object. Security rejected invalid tokens, logging recorded
+								request activity and timing measured execution duration.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The Decorator pattern allowed multiple behaviours to be combined
+								at runtime without creating a separate subclass for every possible
+								combination. The core service remained focused on prediction,
+								while cross-cutting concerns were added independently.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								Decorator supports the Open/Closed Principle, but a long chain of
+								wrappers can make execution flow harder to follow. The order of
+								decorators can also change behaviour; for example, logging outside
+								the security decorator may record rejected requests, whereas
+								logging inside it may not. The composition order must therefore be
+								explicit and tested.
 							</p>
 
 						</section>
@@ -279,13 +321,47 @@
 						<section id="unit5">
 
 							<header class="major">
-								<h2>Unit 5</h2>
+								<h2>Unit 5: Behavioural Design Patterns</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit examined behavioural patterns that organise
+								communication and responsibility between objects. The Strategy
+								pattern was selected for the practical exercise because it
+								encapsulates interchangeable algorithms behind a common interface.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I created a <code>PredictionStrategy</code> abstraction with
+								<code>SentimentStrategy</code>,
+								<code>KeywordStrategy</code> and
+								<code>RiskDetectionStrategy</code> implementations. A
+								<code>PredictionContext</code> received a strategy through its
+								constructor and could replace it at runtime.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The Strategy pattern removed algorithm-specific conditional logic
+								from the context. Each algorithm could be developed and tested
+								independently, while client code selected the most appropriate
+								behaviour without modifying the context class.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								Strategy is suitable when several meaningful algorithms solve the
+								same problem or when behaviour must change dynamically. The
+								trade-off is an increased number of small classes and a need to
+								manage strategy selection. For a single simple algorithm that is
+								unlikely to change, the pattern could become unnecessary
+								over-engineering.
 							</p>
 
 						</section>
@@ -296,13 +372,48 @@
 						<section id="unit6">
 
 							<header class="major">
-								<h2>Unit 6</h2>
+								<h2>Unit 6: Concurrency and Thread-Safe Programming</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit examined multithreading, race conditions, shared
+								mutable state, synchronisation and deadlock. The main objective was
+								to ensure that concurrent operations remained correct when several
+								threads accessed the same objects.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I developed a thread-safe banking system containing
+								<code>BankAccount</code> and
+								<code>TransactionSimulator</code> classes. Deposits, withdrawals,
+								balance reads and transfers were protected with
+								<code>RLock</code>. Transfers acquired two account locks in a
+								fixed order based on account number to reduce deadlock risk.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The activity demonstrated that apparently simple balance updates
+								are not atomic and can produce inconsistent results when threads
+								interleave. Locking protected account invariants, while ordered
+								lock acquisition prevented circular waiting during transfers.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								Synchronisation protects correctness but can reduce concurrency if
+								locks are held for too long. Critical sections should therefore be
+								kept small and the locking policy documented. The prototype used
+								floating-point values for simplicity, whereas a production
+								financial system should use decimal arithmetic, persistent
+								transaction records, authentication, audit trails and recovery
+								mechanisms.
 							</p>
 
 						</section>
@@ -313,13 +424,49 @@
 						<section id="unit7">
 
 							<header class="major">
-								<h2>Unit 7</h2>
+								<h2>Unit 7: Secure Coding</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit considered how insecure implementation decisions can
+								expose otherwise functional object-oriented systems. Topics
+								included validation, injection attacks, password storage, secure
+								comparison, error handling and defence in depth.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I created an intentionally vulnerable SQLite login component that
+								constructed SQL statements through string concatenation and stored
+								a password in plain text. A crafted input successfully bypassed the
+								login check. I then refactored the component to use parameterised
+								queries, username and password validation, PBKDF2 password hashing
+								with a unique salt, <code>hmac.compare_digest()</code> and more
+								specific exception handling.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The comparison showed that security must be enforced at input,
+								domain and data-access boundaries. Parameterised queries removed
+								the injection path, while salted password hashing reduced the
+								consequences of a database disclosure.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								The refactored example is more secure but does not represent a
+								complete authentication platform. A production solution would
+								also require session management, rate limiting, secrets management,
+								multi-factor authentication, access logging and careful separation
+								between internal errors and user-facing messages. Secure coding is
+								therefore an ongoing architectural concern rather than one isolated
+								fix.
 							</p>
 
 						</section>
@@ -330,13 +477,51 @@
 						<section id="unit8">
 
 							<header class="major">
-								<h2>Unit 8</h2>
+								<h2>Unit 8: Refactoring and Code Smells</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit addressed common code smells and disciplined
+								refactoring. Refactoring improves the internal structure of code
+								while preserving its observable behaviour.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I began with an <code>OrderProcessor</code> containing a long
+								<code>process_order()</code> method responsible for validation,
+								discount selection, tax calculation and receipt formatting. The
+								code also relied on primitive strings and magic numbers. I
+								refactored it into immutable <code>Order</code> and
+								<code>OrderTotals</code> data classes, a
+								<code>CustomerType</code> enumeration and separate
+								<code>OrderValidator</code>,
+								<code>DiscountPolicy</code>,
+								<code>PriceCalculator</code>,
+								<code>ReceiptFormatter</code> and
+								<code>OrderService</code> classes.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The refactoring separated responsibilities, removed magic values
+								from the main workflow and made the business rules easier to test.
+								The identical receipt before and after the change confirmed that
+								the external behaviour had been preserved.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								The refactored design contains more classes, so it would be
+								excessive for a disposable script. In a maintainable business
+								system, however, the added structure supports focused changes and
+								independent testing. Refactoring should therefore improve a real
+								maintenance problem rather than simply increase abstraction.
 							</p>
 
 						</section>
@@ -347,13 +532,47 @@
 						<section id="unit9">
 
 							<header class="major">
-								<h2>Unit 9</h2>
+								<h2>Unit 9: Object-Oriented Software Architecture</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit examined monolithic, layered and microservice
+								architectures and considered how architectural choices influence
+								scalability, maintainability, performance and security.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I implemented a small layered e-commerce architecture. The domain
+								layer contained <code>Product</code> and <code>Order</code>
+								objects. The data access layer provided product and order
+								repository abstractions and in-memory implementations. The service
+								layer enforced business rules, while an
+								<code>OrderController</code> represented the presentation layer.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The layered structure created clear dependency boundaries and
+								allowed the storage mechanism to be replaced without changing the
+								business service. The controller delegated business decisions
+								rather than implementing them directly.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								A layered architecture was appropriate for this application
+								because it offered separation without the operational complexity
+								of distributed services. Microservices can scale teams and
+								workloads independently, but they introduce network failure,
+								distributed data management, deployment overhead and a larger
+								security boundary. Architecture should therefore respond to actual
+								scale and change requirements rather than follow trends.
 							</p>
 
 						</section>
@@ -364,13 +583,53 @@
 						<section id="unit10">
 
 							<header class="major">
-								<h2>Unit 10</h2>
+								<h2>
+									Unit 10: Test-Driven Development and
+									Behaviour-Driven Development
+								</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit introduced the TDD cycle of Red, Green and Refactor,
+								the importance of unit testing, behaviour-oriented test design and
+								mocking techniques for isolating dependencies.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								I developed an AI content moderation service around an
+								<code>AIModelClient</code> abstraction. Tests defined expected
+								behaviour for safe content, high-confidence malware content,
+								low-confidence results, empty input, invalid confidence values and
+								AI provider failure. <code>unittest.mock.Mock</code> replaced the
+								AI dependency, allowing deterministic tests without a live model
+								or external API.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								Writing tests around observable outcomes encouraged a small,
+								explicit public interface and made edge cases part of the design
+								rather than an afterthought. Mocking made the tests fast,
+								repeatable and independent from network availability.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								Mocks verify the contract represented in a test but may not behave
+								exactly like a real AI provider. Unit testing must therefore be
+								complemented by integration testing at system boundaries. The
+								practical implementation used descriptive
+								<code>unittest</code> methods rather than a dedicated BDD
+								framework, but the tests still expressed behaviour in terms of
+								expected outcomes rather than implementation details. Ethical
+								concerns such as bias, explainability and confidence calibration
+								would also need dedicated tests in a production AI system.
 							</p>
 
 						</section>
@@ -381,13 +640,51 @@
 						<section id="unit11">
 
 							<header class="major">
-								<h2>Unit 11</h2>
+								<h2>
+									Unit 11: Dependency Injection and
+									Inversion of Control
+								</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								This unit focused on Dependency Injection and Inversion of
+								Control as methods of separating object behaviour from dependency
+								creation. It also considered the benefits and drawbacks of
+								container-based frameworks such as Spring and Google Guice.
+							</p>
+
+							<h3>Artefact</h3>
+
+							<p>
+								The Unit 10 moderation artefact also provided a direct
+								Dependency Injection example. <code>ModerationService</code>
+								received an <code>AIModelClient</code> through constructor
+								injection rather than constructing a concrete client internally.
+								The demonstration supplied a local fake implementation, while the
+								test suite injected a mock implementing the same contract.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								Constructor injection made dependencies visible, reduced coupling
+								and prevented hidden creation logic inside the service. Control
+								over object construction moved to the application composition
+								code, demonstrating Inversion of Control.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								A full DI framework can automate large object graphs, scopes and
+								lifecycle management. In a small Python application, explicit
+								constructor injection is often clearer and easier to debug.
+								Introducing a container too early can hide dependencies behind
+								configuration and make runtime behaviour more difficult to trace.
+								The complexity of the dependency-management mechanism should
+								match the size of the application.
 							</p>
 
 						</section>
@@ -398,14 +695,84 @@
 						<section id="unit12">
 
 							<header class="major">
-								<h2>Unit 12</h2>
+								<h2>Unit 12: Recent Developments and Review</h2>
 							</header>
 
+							<h3>Unit Overview</h3>
+
 							<p>
-								The overview, artefacts, evidence and reflection for
-								this unit will be added after reviewing the unit
-								activities.
+								The final unit consolidated advanced OOP, SOLID principles,
+								design patterns, secure coding, architecture, concurrency and
+								testing through a Capstone Project addressing an AI and
+								cybersecurity-related problem.
 							</p>
+
+							<h3>Capstone Artefact</h3>
+
+							<p>
+								I designed and implemented the
+								<strong>Secure AI Content Moderation Platform</strong>. The system
+								accepts textual content requests and returns
+								<code>ALLOW</code>, <code>REVIEW</code> or
+								<code>BLOCK</code> decisions. The platform is divided into
+								separate domain, service, repository, model-provider and
+								presentation responsibilities.
+							</p>
+
+							<p>
+								The Strategy pattern provides interchangeable moderation
+								algorithms. Decorator adds token validation, logging and execution
+								timing. Abstract Factory creates compatible local or cloud model
+								families. Visitor generates an audit summary without changing the
+								moderation result classes. Constructor injection connects the
+								model client, strategy, repository and Model Registry.
+							</p>
+
+							<p>
+								The application also uses <code>ThreadPoolExecutor</code> for
+								concurrent request processing, while the Model Registry and result
+								repository protect shared state with <code>RLock</code>. Domain
+								objects validate requests and prediction confidence values. The
+								AI dependency is mocked during testing, so tests run without a
+								live model or external API.
+							</p>
+
+							<h3>What I Learned</h3>
+
+							<p>
+								The Capstone showed how patterns and principles become more useful
+								when they solve related design problems within one system. Rather
+								than treating Strategy, Decorator, Abstract Factory and Visitor as
+								isolated examples, I used them to support replaceable decisions,
+								cross-cutting security, provider selection and audit reporting.
+								The thread-safe Model Registry also introduced the idea of
+								maintaining model identity, version and provider metadata.
+							</p>
+
+							<h3>Critical Reflection</h3>
+
+							<p>
+								The modular design improves extensibility and testing, but it also
+								contains more abstraction than a basic rule-based script would
+								require. The current model clients are deterministic local
+								implementations rather than genuine machine-learning models.
+								A production version would need authenticated API communication,
+								encrypted persistence, rate limiting, monitoring, bias evaluation,
+								explainability, model drift detection and human review workflows.
+								A Feature Store could be introduced if reusable, versioned input
+								features were required across training and inference, while the
+								Model Registry would need persistent storage and deployment-stage
+								metadata. These additions would increase operational complexity
+								and should only be introduced when justified by real scale.
+							</p>
+
+							<ul class="actions">
+								<li>
+									<a href="landing.html" class="button primary">
+										View Full Capstone Project
+									</a>
+								</li>
+							</ul>
 
 						</section>
 
